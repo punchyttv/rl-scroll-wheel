@@ -15,7 +15,7 @@ const CONFIG_FILE = path.join(ROOT, 'config.json');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(PUBLIC));
+app.use(express.static(__dirname));
 
 function loadConfig(){ return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8')); }
 function loadDb(){ try { return JSON.parse(fs.readFileSync(DB_FILE, 'utf8')); } catch { return {}; } }
